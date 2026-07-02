@@ -2248,10 +2248,13 @@ async function startServer() {
   } else {
     const distPath = path.join(process.cwd(), "dist");
     app.use(express.static(distPath));
-    app.get("*", (req, res) => {
-      res.sendFile(path.join(distPath, "index.html"));
-    });
   }
+
+  // Catch-all route for SPA - must be last
+  app.get("*", (req, res) => {
+    const distPath = path.join(process.cwd(), "dist");
+    res.sendFile(path.join(distPath, "index.html"));
+  });
 
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`[Express Backend] Service online at http://localhost:${PORT}`);
