@@ -14,7 +14,7 @@ const __dirname = process.cwd();
 const app = express();
 const PORT = 3000;
 
-app.use(express.json({ limit: "20mb" }));
+const PORT = process.env.PORT ? Number(process.env.PORT) : 3000;
 
 const DB_FILE = path.join(process.cwd(), "db.json");
 
