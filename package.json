@@ -1,3 +1,4 @@
+"start": "NODE_ENV=production node dist/server.cjs",
 {
   "name": "react-example",
   "private": true,
