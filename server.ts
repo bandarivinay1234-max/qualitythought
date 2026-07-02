@@ -3,15 +3,13 @@ import express from "express";
 import fs from "fs";
 import path from "path";
 import { createServer as createViteServer } from "vite";
-import { fileURLToPath } from "url";
 import { GoogleGenAI, Type } from "@google/genai";
 import { generateQuizForDay, generateQuizFromMaterial } from "./src/quizGenerator.js";
 import { DayQuiz, Student, CourseLockState, AIInterview, InterviewMessage, AttendanceLog } from "./src/types.js";
 import { initializeApp } from "firebase/app";
 import { getFirestore, doc, setDoc, getDocFromServer } from "firebase/firestore";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = process.cwd();
 
 const app = express();
 const PORT = 3000;
